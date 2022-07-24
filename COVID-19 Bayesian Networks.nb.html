@@ -1871,9 +1871,20 @@ algorithms benchmarked by Dr. Smith with regards to computation
 time.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShibmxlYXJuKVxuZF9hbGdvcml0aG1zIDwtIGMoXCJpYW1iLmZkclwiLCBcImhjXCIsIFwiaDJwY1wiLCBcImFyYWNuZVwiKVxubGlzdF9ibmxlYXJuIDwtIGxpc3QoKVxuZm9yKGogaW4gZF9hbGdvcml0aG1zKSB0cnkoe1xuICBsaXN0X2JubGVhcm5bW2pdXSA8LSBkby5jYWxsKFxuICAgIHdoYXQgPSBqLFxuICAgIGFyZ3MgPSBsaXN0KHggPSBkKVxuICAgIClcbiAgfVxuICApXG5gYGAifQ== -->
-<pre class="r"><code>require(bnlearn)
-d_algorithms &lt;- c(&quot;iamb.fdr&quot;, &quot;hc&quot;, &quot;h2pc&quot;, &quot;aracne&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShibmxlYXJuKVxuYGBgIn0= -->
+<pre class="r"><code>require(bnlearn)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBibmxlYXJuXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDigJhibmxlYXJu4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6Tk1G4oCZOlxuXG4gICAgY29tcGFyZVxuIn0= -->
+<pre><code>Loading required package: bnlearn
+
+Attaching package: ‘bnlearn’
+
+The following object is masked from ‘package:NMF’:
+
+    compare</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZF9hbGdvcml0aG1zIDwtIGMoXCJpYW1iLmZkclwiLCBcImhjXCIsIFwiaDJwY1wiLCBcImFyYWNuZVwiKVxubGlzdF9ibmxlYXJuIDwtIGxpc3QoKVxuZm9yKGogaW4gZF9hbGdvcml0aG1zKSB0cnkoe1xuICBsaXN0X2JubGVhcm5bW2pdXSA8LSBkby5jYWxsKFxuICAgIHdoYXQgPSBqLFxuICAgIGFyZ3MgPSBsaXN0KHggPSBkKVxuICAgIClcbiAgfVxuICApXG5gYGAifQ== -->
+<pre class="r"><code>d_algorithms &lt;- c(&quot;iamb.fdr&quot;, &quot;hc&quot;, &quot;h2pc&quot;, &quot;aracne&quot;)
 list_bnlearn &lt;- list()
 for(j in d_algorithms) try({
   list_bnlearn[[j]] &lt;- do.call(
@@ -2229,7 +2240,7 @@ Error in network.score(x = x, data = data, type = type, ..., by.node = by.node, 
 <pre class="r"><code>M_score_bic &lt;- data.frame(M_score_bic)
 M_score_bic</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbEFBZ2M5K1p6Q2poZDhSZkJUUGwxb3EzcUdwcEUxTHpFM3RSaklFQUJyaGdneVpTUkRXU3daUmdYSmFGbzRpL0xMOVdEYWVNRVNZSXhxYm5KT1lqSE1YSmdnVjBwaVNhSmVXaEZRTDVEM0QwMExlMzVCU1daK0hsQVRFOGduckdpYUdZdlFCQVJLODBDdVNORk56aWpOeTlZMU5RVFpBSFVPQTZyVDRHd21pSjFNLzZGbXNVTE5Za3ZOUzgvTVM0VTVQaWN4S1RVSHl1RURlaGZzVzcyQ29zeThFcGhYZ0tMRmVpWDVKWWt3ZFZ6SitUa3dFYkRuR1A0QkFCd1FyTm5DQVFBQSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbEFBZ2M5K1p6Q2poZDhSZkJUUGwxb3EzcUdwcEUxTHpFM3RSaklFQUJyaGdneVpTUkRXU3daUmdYSmFGbzRpL0xMOVdEYWVNRVNZSXhxYm5KT1lqSE1YSmdnVjBwaVNhSmVXaEZRTDVEM0QwMExlMzVCU1daK0hsQVRFOGduckdpYUdZdlFCUGhMODBDdVNORk56aWpOeTlZMUJWa0FkUTBEcXN2Z2JDYUlsVXovb1VheFFvMWlTODFMejh4TGhiazlKekVwTlFmSzRRUDZGdXhadllLaXpMd1NtRStBb3NWNkpma2xpVEIxWE1uNU9UQVJzTjhZL2dFQUt4MnFUTUVCQUFBPSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3284101","2":"-3328486"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -2266,7 +2277,7 @@ Error in network.score(x = x, data = data, type = type, ..., by.node = by.node, 
 <pre class="r"><code>M_score_aic &lt;- data.frame(M_score_aic)
 M_score_aic</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUVFXN0NNQkRjT0FrUlZvc2k5UjFFYXFxK2dGNTZRNXk0dWs3YVJFM3RLREVDY2VwSE9QZVVSL0FNUGdPc0hac0tIeXpQakQzckdhL2UxaTkwVFFFZ2hDZ0lJWXdSd21TeGZNNWZjNENJSUFzZ2dxbmVkM2pyQ1lFV1oxbzR2ajhNeVhEYy8zTisrRzFQZjU0eEZ1eW43QkdreGp5S3BPSVdSVlhlY3M4eTdlUTJjN1pIYzJEVy9WemVzTjdOZFNJdG1HTFpaNGRlWkdmUGtzaFcxVktnaWVnbXNXY09PazlJTjBLbktPYTgyb2p2dWY0VG9EWU8zRWU3WVRLK1NTNTJWbXhuVFVyeFZZdlNoVy9ZUjlsWU1zTzZwbTNXZHJWUXJncXFmYWFrWXU0ZTViSnhpaWtINXl2U2lFanl3Z0VBQUE9PSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUFFXN0NNQkRjT0FrUlVhRkl2Q09SbXFycUErRENyZXFKcXpFcGlVanRLREVDY2VJam5EbnhDSjdSejZSZEc1c3FQbGllR1h0bWR6N255OWQ0R1FPQUQ0SG5neDhpaE1IczR5Vjd5d0FDZ3N5REFJYnFQdUN2S1FJbGpwVndXenhkbyt2dCtNL1orVlQvWEJ4anlPbDMzaUtZYVBOZEpBVXpLQ2l5bWptV1lTUDJxYldOOUlNKy9WeFcwZGJtV2pGZVUwblRyd2E5eURySEVvbGFsb0tqaWFnbW9XUDJHa2Q0M25HMXhUcGh4WTV2azNjMXdHd0QvYzBlbU54SGtsOFRGWnFvUWM0M0pjL3Q3aFZkNVpVaFkyeXJ5NloxVTNKcG02RGFwbEpJYXYvRlRGUlcwZDJnK3dQeUNBY3l3UUVBQUE9PSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3283290","2":"-3327803"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -2303,7 +2314,7 @@ Error in network.score(x = x, data = data, type = type, ..., by.node = by.node, 
 <pre class="r"><code>M_score_loglik &lt;- data.frame(M_score_loglik)
 M_score_loglik</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUE1ZN0NNQkRjT0FtSTZBNGg4WTVFSWxGZXdEVjBpSXFHd3BqY0pTTFlVV0owSnlwK2N4V1A0Qmw4QmxnYkc0UUx5ek5qeit6TzRtdVpSY3NJQUh3SVBCLzhFQ0gwcHZOSm1xY0FBVUhtUVFBRGRmL2hyekVDSlE2VmNKNTkwUDdwZkhoeHRqbzJsMy9IR0hLNkt6b0VJMjEraUtSa0JnVmwyakRITW1qRmIySnRuL3BCbi9kY1Z0UE81bG94MmxCSmsrOFd2Y2l1anFVdkdsa0pqaWFpbW9TTzJXc2RZYlRuYW90TnpNbzkzOFo1cGlhWWRlQjl0U2NtajVua1pySkNrOVVyK0UvRkM3dDhUZGRGYmNnUTYrcTJTZE5XWE5vcXFIYUpGSkxhZnhFVHRWVjBPYmplQVphU3c2VENBUUFBIn0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUFFXN0NNQkRjT0FtSWlJWkt2SU5JcEtyRUhTNjlWVDF4NmNFWWwwUUVPMHFNUUQzMU41eDRCTS9vWnlocng2YkNCOHN6WTgvc3pzZGkrWklzRXdBSUlRcENDR09FMEp1L1QvUFhIQ0FpeUFLSVlLRHZJLzRhSTlCaXFvWEwyNUQyejVmdmY4NCtmK3JmazJlTUJkM3hGc0d6TVhjaUtaaEZVWkhYekxNTUdubkluTzNKUEpqem1Nc3EycnBjSnlacnFtajIxYUFYMmRXejlHV3RTaW5RUkhTVDJETUhqU2VNOWtKdnNaNndZaSsyazVrZVlMZUJ4ODN1bUhRanlaK05pbTFVajR0TktiamJ2YUlyWGxtU1lsdFROcXViVWlqWEJOVTJVMUpSOXk5aHNuS0s2UWJYRytkaGJ3M0JBUUFBIn0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3283138","2":"-3327675"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -2340,7 +2351,7 @@ Error in network.score(x = x, data = data, type = type, ..., by.node = by.node, 
 <pre class="r"><code>M_score_bde &lt;- data.frame(M_score_bde)
 M_score_bde</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbEFBZ2M5ZVhsanYxL2VqK0NuTUQ2ZnpQUUFUU05yWG1KdWFqR1FJUURXREJGa3lraUdzbGd5akFxUzBiUndGdVdYNjhHMDhZSWx3QmpWM09TY3hHS1l1VEJCcnBURWtrUzl0Q0tnWGlEdkg1b1c5dnlDa3N6OFBLQW1KcEJQV05FME14YWhDUWlVNW9GY2thS2JuRkdhbDYxcmFnS3lBZW9jQmxTbndkbE1FRHVaL2tQTllvV2F4WmFhbDU2Wmx3cHpmRTVpVW1vT2xNTUg5QzdZdDNvRlJabDVKVEN2QUVXTDlVcnlTeEpoNnJpUzgzTmdJbURQTWZ3REFQOXRlRjNDQVFBQSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbEFBZ2M5ZVhsanYxL2VqK0NuTUQ2ZnpQUUFUU05yWG1KdWFqR1FJUURXREJGa3lraUdzbGd5akFxUzBiUndGdVdYNjhHMDhZSWx3QmpWM09TY3hHS1l1VEJCcnBURWtrUzl0Q0tnWGlEdkg1b1c5dnlDa3N6OFBLQW1KcEJQV05FME14YWhDZkNYNW9GY2thS2JuRkdhbDYxckNiSUE2aG9HVkpmQjJVd1FLNW4rUTQxaWhSckZscHFYbnBtWENuTjdUbUpTYWc2VXd3ZjBMZGl6ZWdWRm1Ya2xNSjhBUll2MVN2SkxFbUhxdUpMemMyQWlZTDh4L0FNQVM2S0lQc0VCQUFBPSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3283483","2":"-3328004"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -2377,7 +2388,7 @@ Error in network.score(x = x, data = data, type = type, ..., by.node = by.node, 
 <pre class="r"><code>M_score_bds &lt;- data.frame(M_score_bds)
 M_score_bds</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUHdZNkNNQlI4Rk5CSUlqSDZIWklzRzY1N1dTOTcyM2p5V2dzdVJHd0psS3dmNUkrWThGM3FhMjAxOU5CMFp0cVo5MmE3MlgxR3V3Z0FmQWc4SC93UUlVeStmei9TTEFVSUNESVBBcGlwKzR5L1ZnaVVHQ3ZoK2pOZlhrVC85ZWI1ZEJqMmQ4Y1ljbm9xT2dRTGJYNktwR1FHQldYYU1NY3lhOFYvWW0xei9hRFBPSmZWdExPNVZveHlLbWx5YU5HTDdPWllwcUtSbGVCb0lxcEo2Smk5MWhFV1BWZGI1R3RXOXZ5NHpqSTF3YXdENDlWZW1EeG5rcnZKQ2szV3BPQi9GUy9zOGpYZEY3VWhNZGJWYlpPbXJiaTBWVkR0RWlra3RmOGlKbXFyNkhKd2V3QTB0dkhId2dFQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmwxUHdZNkNNQlI4Rk5CSW9pSHJkMGdVNDlYTDdzV2IyUlBYV2xDSTJCSW9jVDlvZjhURTcxSmZhNnV4aDZZejA4NjhONzgvMlRMS0lnRHdJZkI4OEVPRU1QamVMdEpWQ2hBUVpCNEVNRkwzSC82YUlsRGlSQW1YemZqclgvVHJOOCtIMSt2dTdoaERUazlGaHlEVzVxZElTbVpRVUtZTmN5eWpWcHdUYXh2ckIzMCtjMWxOTzV0cnhTaW5raWI3RnIzSWJvNWxLQnBaQ1k0bW9wcUVqdGxySFNIdXVkb2luN0d5NThmWllxNG1tSFhnYzdVWEpzK1o1RzZ5UXBNMUtQaWg0b1ZkdnFhN29qWmtnblYxMjZScEt5NXRGVlM3UkFwSjdiK0lpZG9xdWh6Y0hrVnBTQkRDQVFBQSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3283493","2":"-3328016"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
@@ -2397,7 +2408,7 @@ g &lt;- rbind(M_score_bic,M_score_aic,M_score_loglik, M_score_bde, M_score_bds)
 rownames(g) &lt;- c(&quot;bic&quot;, &quot;aic&quot;, &quot;loglik&quot;, &quot;bde&quot;, &quot;bds&quot;)
 g</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbUFtUFdnSjU5VDJQR0Nyd2M5ZWRheXJ6MVlCYVFUSVRRdmIrejN5L3VCdE5DUy9GSTdoUHFVVHhmYXFwNGQ5RXllMjFCd2N6bVFqb1hRS1l6UEp6TTlBTkxzUjQ0ay9VZXptRFV2TVRlMUdNZ1FBRnNPRVdUS1NJYXlXREtNQ3BMUnRIQVc1WmZySVd0amhVb3dKMlhDOURFbndwbHNPZm5wT1puWmNEVXBxUWhtTWJwcmtuTVNpMkhHd2dTNVVoSkxFdlhTaW9BMkFubi8wTFN3NXhlVVpPYm5BVFV4Q1lQZGdxcVpzUWhOUUtBMEQrVDJGTjNrak5LOGJGMVRNNUFOWUhrSTVvWFNyRWhzSm9pZFRQL1JQTXlXbXBlZW1RZnpEMnRPWWxKcURwVERCd3drY0JqcEZSUmw1cFhBdkFJVUxkWXJ5UzlKaEtualNzN1BnWW1BUGNmd0R3QllFbHRhT0FJQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNSB4IDJdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQUJQbUFtUFdnSjU5VDJQR0Nyd2M5ZWRheXJ6MVlCYVFUSVRRdmIrejN5L3VCdE5DUy9GSTdoUHFVVHhmYXFwNGQ5RXllMjFCd2N6bVFqb1hRS1l6UEp6TTlBTkxzUjQ0ay9VZXptRFV2TVRlMUdNZ1FBRnNPRVdUS1NJYXlXREtNQ3BMUnRIQVc1WmZySVd0amhVb3dKMlhDOURFbndwbHNPZm5wT1puWmNEVXBxUWhtTWJwcmtuTVNpMkhHd2dTNVVoSkxFdlhTaW9BMkFubi8wTFN3NXhlVVpPYm5BVFV4Q1lQZGdxcVpzUWhOUUtBMEQrVDJGTjNrak5LOGJGMURRNUFOWUhrSTVvWFNyRWhzSm9pZFRQL1JQTXlXbXBlZW1RZnpEMnRPWWxKcURwVERCd3drY0JqcEZSUmw1cFhBdkFJVUxkWXJ5UzlKaEtualNzN1BnWW1BUGNmd0R3QnRpVjVMT0FJQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["hc"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["h2pc"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3284101","2":"-3328486","_rn_":"bic"},{"1":"-3283290","2":"-3327803","_rn_":"aic"},{"1":"-3283138","2":"-3327675","_rn_":"loglik"},{"1":"-3283483","2":"-3328004","_rn_":"bde"},{"1":"-3283493","2":"-3328016","_rn_":"bds"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
@@ -2410,7 +2421,7 @@ h &lt;- data.frame(t(g))
 colnames(h) &lt;- rownames(g)
 h</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMiB4IDVdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQTFQQUJNZE5CVHo2bnNPTUZYdzk2cG55NjBGYjFEQ0hPczVaOTdjR3FnNTdKY3hzS2JpNUhFaytFaXNlaWl2UHl4bjYvdkI5b0R1UHp5VXdQa01TRmx1U1gyZ0hGMlk4Y1NmcVA1aURXdk1UYzFHSWdRd0RzS0lnZ2MxSm1Nb3laQ0dleTVlU241MlJtdzlXa3BDS1l4V2pHY2hibGwrc2hHODBFbFdES2dCbkhrbUZVa0l6dW11U2N4R0tZRnBnZ1YwcGlTYUplV2hIUU5DRHZINW9XOXZ5Q2tzejhQS0FtSmxpNEltdG1MRUlURUNqTkE3a3JSVGM1b3pRdlc5ZlVER1FEV0I2Q2VhRTBFeEtiRldJbjAzKzBjR0pMelV2UHpJTUZBMnRPWWxKcURwVERCd3dBc1AvMUNvb3k4MHBnWGdHS0Z1dVY1SmNrd3RSeEplZm53RVRBbm1QNEJ3RGlkZDRFVUFJQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMiB4IDVdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQTFQQUJNZE5CVHo2bnNPTUZYdzk2cG55NjBGYjFEQ0hPczVaOTdjR3FnNTdKY3hzS2JpNUhFaytFaXNlaWl2UHl4bjYvdkI5b0R1UHp5VXdQa01TRmx1U1gyZ0hGMlk4Y1NmcVA1aURXdk1UYzFHSWdRd0RzS0lnZ2MxSm1Nb3laQ0dleTVlU241MlJtdzlXa3BDS1l4V2pHY2hibGwrc2hHODBFbFdES2dCbkhrbUZVa0l6dW11U2N4R0tZRnBnZ1YwcGlTYUplV2hIUU5DRHZINW9XOXZ5Q2tzejhQS0FtSmxpNEltdG1MRUlURUNqTkE3a3JSVGM1b3pRdlc5ZlFFR1FEV0I2Q2VhRTBFeEtiRldJbjAzKzBjR0pMelV2UHpJTUZBMnRPWWxKcURwVERCd3dBc1AvMUNvb3k4MHBnWGdHS0Z1dVY1SmNrd3RSeEplZm53RVRBbm1QNEJ3RFg3dHNWVUFJQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["bic"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["aic"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["loglik"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bde"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["bds"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3284101","2":"-3283290","3":"-3283138","4":"-3283483","5":"-3283493","_rn_":"hc"},{"1":"-3328486","2":"-3327803","3":"-3327675","4":"-3328004","5":"-3328016","_rn_":"h2pc"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
@@ -2422,7 +2433,7 @@ h</code></pre>
 sorted_h &lt;- h[order(h$bic,h$aic,h$loglik,h$bde,h$bds),]
 sorted_h</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMiB4IDVdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQTFQQUJNZE5CejVSUEY5cXFuaDMwNUhNS08xN3dGU0dlUExlaDRPYnlnNTQ4YTluWEhxeENFbytGaWllaWlxY3dQcC9NOU9DZ0p5OXY3UGZMKzVIRTJZOGNTZm9QRkJkYWtsOXFoK1lnMXJ6RTNOUmlJRU1BN0NpSUlITlNaaktNbVFobnN1WGtwK2RrWnNQVnBLUWltTVZveG5JVzVaZnJJUnZOQkpWZ3lUQXFnQm5JbEpHTTdwcmtuTVJpbUJhWUlGZEtZa21pWGxvUjBEUWc3eCthRnZiOGdwTE0vRHlnSmlaWXVDSnJaaXhDRXhBb3pRTzVLMFUzT2FNMEwxdlgxQXhrQTFnZWdubWhOQk1TbXhWaUo5Ti90SEJpUzgxTHo4eURCUU5yVG1KU2FnNlV3d2NNQUxELzlRcUtNdk5LWUY0QmloYnJsZVNYSk1MVWNTWG41OEJFd0o1aitBY0FoL21IYmxBQ0FBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbMiB4IDVdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQmd0eWlURG1pdUJpWUdCZ1ptQmhaR1pnWmdVeUdkaWNBd3lOVEkwWUdGaVlnRHhHQmhZR1RoQmRBVlFsREdTQTFQQUJNZE5CejVSUEY5cXFuaDMwNUhNS08xN3dGU0dlUExlaDRPYnlnNTQ4YTluWEhxeENFbytGaWllaWlxY3dQcC9NOU9DZ0p5OXY3UGZMKzVIRTJZOGNTZm9QRkJkYWtsOXFoK1lnMXJ6RTNOUmlJRU1BN0NpSUlITlNaaktNbVFobnN1WGtwK2RrWnNQVnBLUWltTVZveG5JVzVaZnJJUnZOQkpWZ3lUQXFnQm5JbEpHTTdwcmtuTVJpbUJhWUlGZEtZa21pWGxvUjBEUWc3eCthRnZiOGdwTE0vRHlnSmlaWXVDSnJaaXhDRXhBb3pRTzVLMFUzT2FNMEwxdlgwQkJrQTFnZWdubWhOQk1TbXhWaUo5Ti90SEJpUzgxTHo4eURCUU5yVG1KU2FnNlV3d2NNQUxELzlRcUtNdk5LWUY0QmloYnJsZVNYSk1MVWNTWG41OEJFd0o1aitBY0FzbUtDZjFBQ0FBQT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["bic"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["aic"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["loglik"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bde"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["bds"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"-3328486","2":"-3327803","3":"-3327675","4":"-3328004","5":"-3328016","_rn_":"h2pc"},{"1":"-3284101","2":"-3283290","3":"-3283138","4":"-3283483","5":"-3283493","_rn_":"hc"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
@@ -2526,12 +2537,26 @@ trying URL &#39;https://bioconductor.org/packages/3.14/bioc/bin/windows/contrib/
 Content type &#39;application/zip&#39; length 2077191 bytes (2.0 MB)
 downloaded 2.0 MB</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5SZXN0YXJ0aW5nIFIgc2Vzc2lvbi4uLlxuIn0= -->
-<pre><code>
-Restarting R session...</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhCSOKAmSBzdWNjZXNzZnVsbHkgdW5wYWNrZWQgYW5kIE1ENSBzdW1zIGNoZWNrZWRcbnBhY2thZ2Ug4oCYZ3JhcGjigJkgc3VjY2Vzc2Z1bGx5IHVucGFja2VkIGFuZCBNRDUgc3VtcyBjaGVja2VkXG5wYWNrYWdlIOKAmFJCR0zigJkgc3VjY2Vzc2Z1bGx5IHVucGFja2VkIGFuZCBNRDUgc3VtcyBjaGVja2VkXG5wYWNrYWdlIOKAmFJncmFwaHZpeuKAmSBzdWNjZXNzZnVsbHkgdW5wYWNrZWQgYW5kIE1ENSBzdW1zIGNoZWNrZWRcblxuVGhlIGRvd25sb2FkZWQgYmluYXJ5IHBhY2thZ2VzIGFyZSBpblxuXHRDOlxcVXNlcnNcXFN1bWEgTWFycmlcXEFwcERhdGFcXExvY2FsXFxUZW1wXFxSdG1wQ1kxRklPXFxkb3dubG9hZGVkX3BhY2thZ2VzXG4ifQ== -->
+<pre><code>package ‘BH’ successfully unpacked and MD5 sums checked
+package ‘graph’ successfully unpacked and MD5 sums checked
+package ‘RBGL’ successfully unpacked and MD5 sums checked
+package ‘Rgraphviz’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+    C:\Users\Suma Marri\AppData\Local\Temp\RtmpCY1FIO\downloaded_packages</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbWFrZVJlc3RhcnRMaXN0KC4uLikgOiByZWFjaGVkIGVsYXBzZWQgdGltZSBsaW1pdFxuIn0= -->
-<pre><code>Error in makeRestartList(...) : reached elapsed time limit</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGF0aW9uIHBhdGhzIG5vdCB3cml0ZWFibGUsIHVuYWJsZSB0byB1cGRhdGUgcGFja2FnZXNcbiAgcGF0aDogQzovUHJvZ3JhbSBGaWxlcy9SL1ItNC4xLjMvbGlicmFyeVxuICBwYWNrYWdlczpcbiAgICBjbHVzdGVyLCBNQVNTLCBNYXRyaXgsIG1nY3YsIG5sbWUsIHN1cnZpdmFsXG5PbGQgcGFja2FnZXM6ICdjbGknLCAnZHBseXInLCAnZmFuc2knLCAnZmFydmVyJywgJ2h0bWx0b29scycsICdtYWdyaXR0cicsICdSY3BwJywgJ3JsYW5nJywgJ3NjYWxlcycsICdzdHJpbmdpJywgJ3RpYmJsZScsXG4gICd2Y3RycycsICd4ZnVuJ1xuIn0= -->
+<pre><code>Installation paths not writeable, unable to update packages
+  path: C:/Program Files/R/R-4.1.3/library
+  packages:
+    cluster, MASS, Matrix, mgcv, nlme, survival
+Old packages: &#39;cli&#39;, &#39;dplyr&#39;, &#39;fansi&#39;, &#39;farver&#39;, &#39;htmltools&#39;, &#39;magrittr&#39;, &#39;Rcpp&#39;, &#39;rlang&#39;, &#39;scales&#39;, &#39;stringi&#39;, &#39;tibble&#39;,
+  &#39;vctrs&#39;, &#39;xfun&#39;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiVXBkYXRlIGFsbC9zb21lL25vbmU/IFthL3Mvbl06IFxuUmVzdGFydGluZyBSIHNlc3Npb24uLi5cbiJ9 -->
+<pre><code>Update all/some/none? [a/s/n]: 
+Restarting R session...</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->

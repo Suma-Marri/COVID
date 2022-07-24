@@ -1,8 +1,10 @@
 ---
 title: "Assignment - Bayesian Networks"
 output:
-  pdf_document: default
   html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
 -------------------------------------------------------------------------------
 
@@ -199,8 +201,9 @@ names(v_edgecolor) <- v_edges
 ## Plotting the model
 ```{r}
 #Converting the bnlearn model to a graphNEL model
-install.packages("BiocManager")
-BiocManager::install(c("graph", "RBGL", "Rgraphviz"))
+# library(BiocManager)
+# install.packages("BiocManager")
+# BiocManager::install(c("graph", "RBGL", "Rgraphviz"))
 graphNEL_covid <- as.graphNEL(hc_covid)
 ```
 
@@ -243,7 +246,12 @@ print(paste0("AUC:", AUC_model))
 #Calculating Model Accuracy
 Accuracy_model <- Metrics::accuracy(pred_table$actual,pred_table$pred)
 print(paste0("Accuracy: ", Accuracy_model))
-#Constructing the confusion matrix
+# Constructing the confusion matrix
+remove.packages("rlang")
+install.packages("rlang")
+install.packages("vctrs")
+install.packages("pillar")
+
 confusion_matrix_model <- caret::confusionMatrix(pred_table$pred,pred_table$actual,"1")
 
 cm <- data.frame(confusion_matrix_model$byClass)

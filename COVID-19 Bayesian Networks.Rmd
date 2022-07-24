@@ -1,0 +1,267 @@
+---
+title: "Assignment - Bayesian Networks"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+-------------------------------------------------------------------------------
+
+
+## Loading the Data
+```{r}
+data_assignment_3 <- read.csv(file = "C:/Users/Suma Marri/Documents/GitHub/COVID/COVID.csv",
+                              colClasses = "character"
+                          )
+data_assignment_3
+```
+This COVID-19 Symptoms Checker dataset is from the Kaggle Repository and is based on the guidelines given by the World Health Organization and the Ministry of Health and Family Welfare, India. The dataset helps identify whether any person has coronavirus based on pre-defined standard symptoms.
+For this assignment, I have chosen a more suitable dataset for Bayesian networks, that would pertain to the analysis of causation between symptoms, age, and other factors that would show if for example a person has a certain symptom, are they more susceptible to be old, or have another symptom, or the severity of the disease based on factors. None_Sympton and None_Experiencing points to a patient having no top 5 symptoms and not experiencing any other symptoms respectively.
+For this analysis, the symptom variables used would be Fever, Tiredness, Dry.Cough, Difficulty.in.Breathing, and Sore.Throat, which are the top 5 symptoms of COVID-19 as specified by the WHO. Other symptoms that are used would be the Pains, Nasal.Congestion, Runny.Nose, and Diarrhea. Variables for age help us identify if the virus is truly severe to those who are older. Three genders are used: Male, Female, and Transgender. The severity for the virus is considered to be None, Mild, Moderate, and Severe. The contact tell us if the person has been in contact with someone with the virus. The country variable tells us which country the person visited, but for the purpose of this analysis, it will not be used.
+
+# Preparing the dataset for bnlearn package to have all factor variables
+Removing Country and making sure we have factor variables for Bayesian networks
+```{r}
+d <- subset(data_assignment_3, select = -c(Country))
+summary(d)
+
+for(j in 1:ncol(d)){  
+  d[,j] <- factor(as.numeric(d[,j]))}
+summary(d)
+```
+
+# Building the Bayesian Network Models
+Constructing the Bayesian Models using a constraint-based, score-based, hybrid, and a local discovery algorithm. Using the the algorithms benchmarked by Dr. Smith with regards to computation time.
+```{r}
+require(bnlearn)
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+list_bnlearn <- list()
+for(j in d_algorithms) try({
+  list_bnlearn[[j]] <- do.call(
+    what = j,
+    args = list(x = d)
+    )
+  }
+  )
+list_bnlearn
+```
+The score-based algorithm hc() and the hybrid algorithm h2pc() produce directed graphs.
+Lets see if we can produce directed graphs with any other constraint-based and local discovery algorithms
+```{r}
+d_algorithms <- c("pc.stable", "gs", "iamb", "inter.iamb", "mmpc", "si.hiton.pc", "hpc", "chow.liu")
+list2_bnlearn <- list()
+for(j in d_algorithms) try({
+  list2_bnlearn[[j]] <- do.call(
+    what = j,
+    args = list(x = d)
+    )
+  },silent = TRUE
+  )
+list2_bnlearn
+```
+Since the other constraint-based algorithms and the local discovery algorithms do not produce a fully directed graph, lets proceed with the initial algorithms due to their benchmarked performance to save time: iamb.fdr(), hc(), h2pc(), and aracne().
+
+# Scoring the Models
+Since we do not have a lot of success with the learning of constraint based and local discovery algorithm, we can go on with finding the best model depending on the scoring type for the score-based and hybrid algorithms. Below, we will still try to score the constraint-based and local discovery algorithm. The selection of the model will depend on the type of scoring and the score itself for the algorithm. Testing of the available scores for discrete Bayesian networks for categorical variables will be performed.
+The measures that will be tested are loglik - which measures the log likelihood, meaning the goodness of fit of the model to the sample of the data. This is imperative, as we do want model that is a good fit, bic - which is a criterion for model selection amongst a set of models (lowest bic model is preferred) and it is partly based on the likelihood function, aic - which is an estimator of the prediction and informs about the quality of the model compared to other models in a set of models, bde - which is the logarithm of the Bayesian Dirichlet equivalent (uniform) score, a score equivalent Dirichlet posterior density and bds - the logarithm of the Bayesian Dirichlet sparse score, which is a sparsity-inducing Dirichlet posterior density and not score equivalent.
+
+## bic
+```{r}
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+
+M_score_bic <- list()
+for (j in d_algorithms) try({
+  M_score_bic[j] <- score(
+    x=list_bnlearn[[j]],
+    data = d,
+    type = "bic"
+  )
+}
+)  
+M_score_bic <- data.frame(M_score_bic)
+M_score_bic
+```
+## aic
+```{r}
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+
+M_score_aic <- list()
+for (j in d_algorithms) try({
+  M_score_aic[j] <- score(
+    x=list_bnlearn[[j]],
+    data = d,
+    type = "aic"
+  )
+}
+)  
+M_score_aic <- data.frame(M_score_aic)
+M_score_aic
+```
+## loglik
+```{r}
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+
+M_score_loglik <- list()
+for (j in d_algorithms) try({
+  M_score_loglik[j] <- score(
+    x=list_bnlearn[[j]],
+    data = d,
+    type = "loglik"
+  )
+}
+)  
+M_score_loglik <- data.frame(M_score_loglik)
+M_score_loglik
+```
+## bde
+```{r}
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+
+M_score_bde <- list()
+for (j in d_algorithms) try({
+  M_score_bde[j] <- score(
+    x=list_bnlearn[[j]],
+    data = d,
+    type = "bde"
+  )
+}
+)  
+M_score_bde <- data.frame(M_score_bde)
+M_score_bde
+```
+## bds
+```{r}
+d_algorithms <- c("iamb.fdr", "hc", "h2pc", "aracne")
+
+M_score_bds <- list()
+for (j in d_algorithms) try({
+  M_score_bds[j] <- score(
+    x=list_bnlearn[[j]],
+    data = d,
+    type = "bds"
+  )
+}
+)  
+M_score_bds <- data.frame(M_score_bds)
+M_score_bds
+```
+
+
+## Model Score Comparison
+```{r}
+#Combining the scores in a table df
+g <- rbind(M_score_bic,M_score_aic,M_score_loglik, M_score_bde, M_score_bds)
+rownames(g) <- c("bic", "aic", "loglik", "bde", "bds")
+g
+#Formatting the table to see which algorithm performs better
+h <- data.frame(t(g))
+colnames(h) <- rownames(g)
+h
+#Sorting largest to smallest in terms of performance of algorithms
+sorted_h <- h[order(h$bic,h$aic,h$loglik,h$bde,h$bds),]
+sorted_h
+```
+Now that we have scores for the algorithms sorted, we can see that hc() performed better according to all scoring types. 
+The best model according to the table is hc(). All the scoring types show the same results according to the table.
+```{r}
+apply(sorted_h, 2, FUN=max)
+```
+# Visualizing the model hc()
+## Setting the node and edge attributes
+```{r}
+#Node Attributes
+hc_covid <- hc(d)
+v_nodes <- nodes(hc_covid)
+names(v_nodes) <- v_nodes
+strength_covid <- arc.strength( 
+  x = hc_covid,  
+  data = d
+)
+n_nodes <- nnodes(hc_covid)
+
+v_fillcolor <- viridis::viridis(n_nodes)
+names(v_fillcolor) <- v_nodes
+
+v_shape <- c(
+  rep("circle",floor(n_nodes/3)),
+  rep("ellipse",floor(n_nodes/3)),
+  rep("box",n_nodes - 2*floor(n_nodes/3))
+  )
+names(v_shape) <- v_nodes
+
+#Edge Attributes
+v_edges <- paste0(strength_covid[,"from"],"~",
+                  strength_covid[,"to"])
+names(v_edges) <- v_edges
+
+v_edgecolor <- v_fillcolor[strength_covid[,"from"]]
+names(v_edgecolor) <- v_edges
+```
+## Plotting the model
+```{r}
+#Converting the bnlearn model to a graphNEL model
+install.packages("BiocManager")
+BiocManager::install(c("graph", "RBGL", "Rgraphviz"))
+graphNEL_covid <- as.graphNEL(hc_covid)
+```
+
+```{r}
+Rgraphviz::plot(  
+  x = graphNEL_covid, 
+  y = "twopi",  attrs = list(),   
+  nodeAttrs = list(    
+    fillcolor = v_fillcolor,    
+    shape = v_shape  
+    ),   
+  edgeAttrs = list(    
+    label = v_edges,    
+    weight = graph::edgeWeights(graphNEL_covid),    
+    color = v_edgecolor,    
+    fontcolor = v_edgecolor
+    )
+  )
+```
+
+# Predict the target variable
+
+## Predicting the target
+For this analysis, since the bayesian model treats all the nodes as predictor and target, lets assume we are predicting the presence of the Nasal Congestion in a patient. Let's predict whether the patient will have nasal congestion or not depending on the symptoms and other features that the patient might have.
+```{r}
+fit_model <- bn.fit(
+  x = hc_covid,
+  data = d
+)
+pred_table <- data.frame(pred = predict(fit_model, node = "Nasal.Congestion", data = d),actual = d$Nasal.Congestion)
+summary(pred_table)
+
+```
+
+## Evaluating Model Fit
+```{r}
+#Calculating AUC
+AUC_model <- Metrics::auc(pred_table$actual,pred_table$pred)
+print(paste0("AUC:", AUC_model))
+#Calculating Model Accuracy
+Accuracy_model <- Metrics::accuracy(pred_table$actual,pred_table$pred)
+print(paste0("Accuracy: ", Accuracy_model))
+#Constructing the confusion matrix
+confusion_matrix_model <- caret::confusionMatrix(pred_table$pred,pred_table$actual,"1")
+
+cm <- data.frame(confusion_matrix_model$byClass)
+cm
+```
+If I was using this model at work, I would not use this for the analysis of this dataset. According to the evaluation scores above that show the model performance in prediction of nasal congestion, the scores are not that impressive. Let's assume if the dataset only had features concerning symptoms, and the age features as well as the contact features were taken out, the prediction could be more accurate since age does not contribute towards a person having nasal congestion. 
+However, since we are dealing with a graphical model, lets run a cross-validation to further see whether the model performs well without specifying a target:
+```{r}
+# Repeated 2-fold Cross-validation
+cv_model <- bn.cv(
+  data = d,
+  bn = "hc",
+  k = 2,
+  runs = 2
+)
+cv_model
+```
+The graphical model seems to perform well, however, I would not use this for prediction in a classification problem if we were trying to predict either a symptom, or severity. I would rather use a clustering technique or do a logistic regression for this kind of problem. This model would work well for a target prediction if we were only predicting presence of a disease looking at other diseases or maybe even age as features. 
+
+
+
